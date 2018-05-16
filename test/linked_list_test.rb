@@ -31,4 +31,20 @@ class LinkedListTest < Minitest::Test
     assert_equal 3, list.count
   end
 
+  def test_to_s_returns_the_list_as_a_string
+    list = LinkedList.new
+    list.append(2)
+    list.append(3)
+    list.append(3)
+    assert_equal "233", list.to_s
+  end
+
+  def test_prepend_adds_data_to_begining_of_list
+    list = LinkedList.new
+    list.append(2)
+    list.prepend(3)
+    assert_equal 2, list.count
+    assert_equal "32", list.to_s
+  end
+
 end
