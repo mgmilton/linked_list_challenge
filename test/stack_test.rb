@@ -18,4 +18,13 @@ class StackTest < Minitest::Test
 
     assert_equal 3, stack.push(3)
   end
+
+  def test_pop_removes_and_returns_last_element
+    stack = Stack.new
+    stack.push(5)
+    stack.push(4)
+    stack.push(8)
+
+    assert_equal 8, stack.pop
+  end
 end
