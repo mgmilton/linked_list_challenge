@@ -22,4 +22,12 @@ class Stack
   def pop
     list.pop
   end
+
+  def peek
+    current = list.head
+    until current.next_node.nil?
+      current = current.next_node
+    end
+    current.data
+  end
 end
