@@ -74,7 +74,28 @@ class LinkedList
     shift
   end
 
+  def sort
+    if count <= 1
+      return "List is too short to sort."
+    else
+      current = @head
+      (count - 1).times {
+        rearranger(current)
+        current = current.next_node
+      }
+    end
+  end
+
+
  private
+    def rearranger(current)
+      if current.data > current.next_node.data
+        temp = current.next_node.data
+        current.next_node.data = current.data
+        current.data = temp
+      end
+    end
+
     def empty?
       @head == nil
     end
