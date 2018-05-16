@@ -47,4 +47,14 @@ class LinkedListTest < Minitest::Test
     assert_equal "32", list.to_s
   end
 
+  def test_insert_adds_data_at_specified_position
+    list = LinkedList.new
+    list.append(3)
+    list.append(5)
+    list.append(4)
+    list.insert(1, 8)
+    assert_equal 4, list.count
+    assert_equal "3854", list.to_s
+  end
+
 end
