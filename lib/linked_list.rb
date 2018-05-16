@@ -55,6 +55,18 @@ class LinkedList
     end
   end
 
+  def pop
+    current = @head
+    if empty?
+      nil
+    elsif count == 1
+      @head = nil
+      popped = current.data
+    else
+      pop_returner
+    end
+  end
+
  private
     def empty?
       @head == nil
@@ -78,6 +90,16 @@ class LinkedList
     def find_node(position, current)
       (position - 1).times { current = current.next_node }
       current
+    end
+
+    def pop_returner
+      current = @head
+      until current.next_node.next_node.nil?
+        current = current.next_node
+      end
+      popped = current.next_node.data
+      current.next_node = nil
+      popped
     end
 
 end
