@@ -57,4 +57,24 @@ class LinkedListTest < Minitest::Test
     assert_equal "3854", list.to_s
   end
 
+  def test_pop_removes_and_returns_last_element_of_list
+    list = LinkedList.new
+    list.append(3)
+    list.append(5)
+    list.append(9)
+    list.append(4)
+
+    assert_equal 4, list.pop
+    assert_equal 3, list.count
+    assert_equal "359", list.to_s
+  end
+
+  def test_pop_works_for_a_list_of_one
+    list = LinkedList.new
+    list.append(3)
+
+    assert_equal 3, list.pop
+    assert_equal 0, list.count
+  end
+
 end
