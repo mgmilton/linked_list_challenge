@@ -77,4 +77,14 @@ class LinkedListTest < Minitest::Test
     assert_equal 0, list.count
   end
 
+  def test_shift_returns_and_removes_first_element_of_list
+    list = LinkedList.new
+    list.append(2)
+    list.append(4)
+    list.append(3)
+
+    assert_equal 2, list.shift
+    assert_equal 2, list.count
+    assert_equal "43", list.to_s
+  end
 end
