@@ -67,6 +67,13 @@ class LinkedList
     end
   end
 
+  def shift
+    shift = @head.data
+    right_nodes = @head.next_node
+    @head = right_nodes
+    shift
+  end
+
  private
     def empty?
       @head == nil
