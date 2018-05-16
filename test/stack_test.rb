@@ -27,4 +27,17 @@ class StackTest < Minitest::Test
 
     assert_equal 8, stack.pop
   end
+
+  def test_peek_returns_last_element_in_stack
+    stack = Stack.new
+    stack.push(5)
+    stack.push(4)
+    stack.push(8)
+
+    assert_equal 8, stack.peek
+
+    stack.pop
+
+    assert_equal 4, stack.peek
+  end
 end
