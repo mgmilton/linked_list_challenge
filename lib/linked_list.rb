@@ -44,6 +44,17 @@ class LinkedList
     @head = current
   end
 
+  def insert(position, num)
+    current = @head
+    if position == 0
+      prepend(num)
+    elsif position < count
+      insert_node(current, position, num)
+    else
+      return "Position provided is longer than list!"
+    end
+  end
+
  private
     def empty?
       @head == nil
@@ -54,6 +65,18 @@ class LinkedList
       until current.next_node.nil?
         current = current.next_node
       end
+      current
+    end
+
+    def insert_node(current, position, num)
+      current = find_node(position, current)
+      right_node = current.next_node
+      current.next_node = Node.new(num)
+      current.next_node.next_node = right_node
+    end
+
+    def find_node(position, current)
+      (position - 1).times { current = current.next_node }
       current
     end
 
