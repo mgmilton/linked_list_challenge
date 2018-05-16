@@ -28,6 +28,21 @@ class LinkedList
     count
   end
 
+  def to_s
+    temp = []
+    current = @head
+    until current.nil?
+      temp << current.data
+      current = current.next_node
+    end
+    temp.join("")
+  end
+
+  def prepend(num)
+    current = Node.new(num)
+    current.next_node = @head
+    @head = current
+  end
 
  private
     def empty?
