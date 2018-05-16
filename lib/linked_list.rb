@@ -18,10 +18,28 @@ class LinkedList
     new_tail.data
   end
 
+  def count
+    count = 0
+    current = @head
+    until current.nil?
+      current = current.next_node
+      count += 1
+    end
+    count
+  end
+
 
  private
     def empty?
       @head == nil
+    end
+
+    def tail
+      current = @head
+      until current.next_node.nil?
+        current = current.next_node
+      end
+      current
     end
 
 end
