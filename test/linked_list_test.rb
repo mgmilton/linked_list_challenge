@@ -87,4 +87,15 @@ class LinkedListTest < Minitest::Test
     assert_equal 2, list.count
     assert_equal "43", list.to_s
   end
+
+  def test_sort_bubble_sorts_the_linked_list
+    list = LinkedList.new
+    list.append(2)
+    list.append(4)
+    list.append(3)
+
+    list.sort
+
+    assert_equal "234", list.to_s
+  end
 end
